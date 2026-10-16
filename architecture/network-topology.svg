@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1080" viewBox="0 0 1440 1080" role="img" aria-labelledby="title desc">
+<title id="title">Mini SOC Lab architecture</title><desc id="desc">Windows and Ubuntu agents send events over the host-only network to a Docker Wazuh manager. Filebeat ships alerts to the indexer. The dashboard queries the indexer and manager API. NAT is a separate maintenance path.</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="none" stroke="#27c4bd" stroke-width="1.5"/></marker></defs>
+<rect width="1440" height="1080" fill="#0b1423"/>
+<style>text{font-family:Arial,Helvetica,sans-serif}.label{fill:#9badc5;font-size:17px}.body{fill:#d8e4f4;font-size:19px}.head{fill:#fff;font-size:26px;font-weight:700}.mono{font-family:monospace;fill:#70ddd7;font-size:19px}.line{fill:none;stroke:#27c4bd;stroke-width:2.5;marker-end:url(#arrow)}</style>
+<text x="56" y="48" class="label" letter-spacing="2">UMUD-CYBER   /   SECURITY OPERATIONS LAB</text>
+<text x="56" y="103" class="head" font-size="36">Endpoint telemetry. Centralized investigation.</text>
+<text x="56" y="140" class="label" >Wazuh 4.14.8  •  VMware Workstation  •  Evidence captured 13–16 October 2026</text>
+<rect x="48" y="177" width="1344" height="760" rx="22" fill="#0f1c2e" stroke="#30465f"/>
+<text x="76" y="212" class="label" letter-spacing="1.5">VMWARE HOST-ONLY NETWORK</text>
+<text x="1127" y="212" class="mono" >192.168.38.0/24</text>
+<rect x="76" y="246" width="391" height="185" rx="15" fill="#142238" stroke="#2b405a"/>
+<text x="100" y="282" class="head" >ubuntu-web</text>
+<text x="100" y="314" class="mono" >192.168.38.20   /   agent 002</text>
+<text x="100" y="349" class="body" >Ubuntu 24.04.5 LTS • Nginx</text>
+<text x="100" y="378" class="label" >journald + Nginx access log</text>
+<text x="100" y="407" class="label" >Wazuh agent</text>
+<rect x="503" y="246" width="391" height="185" rx="15" fill="#142238" stroke="#2b405a"/>
+<text x="527" y="282" class="head" >win-client</text>
+<text x="527" y="314" class="mono" >192.168.38.30   /   agent 004</text>
+<text x="527" y="349" class="body" >Windows 11 Pro • Sysmon</text>
+<text x="527" y="378" class="label" >Windows Event Channels</text>
+<text x="527" y="407" class="label" >Wazuh agent</text>
+<rect x="930" y="246" width="434" height="185" rx="15" fill="#142238" stroke="#2b405a"/>
+<text x="954" y="282" class="head" >Analyst workstation</text>
+<text x="954" y="319" class="body" >Browser on the VMware host</text>
+<text x="954" y="357" class="mono" >https://192.168.38.10</text>
+<text x="954" y="394" class="label" >Dashboard access • TCP 443</text>
+<path d="M271 431 V459 H698" fill="none" stroke="#27c4bd" stroke-width="2.5"/>
+<path d="M698 431 V590 H270 V605" class="line"/>
+<text x="78" y="486" class="label" >Agent events: TCP 1514  /  Enrollment: TCP 1515</text>
+<rect x="76" y="501" width="1288" height="405" rx="18" fill="#11263a" stroke="#36717e"/>
+<text x="100" y="539" class="head" >siem-host</text>
+<text x="280" y="538" class="mono" >192.168.38.10</text>
+<text x="910" y="538" class="label" >Ubuntu 24.04.5 LTS • Docker</text>
+<text x="100" y="574" class="label" >Single-node stack • private container network</text>
+<rect x="100" y="605" width="340" height="160" rx="15" fill="#18324a" stroke="#347586"/>
+<text x="122" y="643" class="head" >Wazuh Manager</text>
+<text x="122" y="679" class="body" >Decode • rules • alerts</text>
+<text x="122" y="719" class="label" >Filebeat ships alert documents</text>
+<text x="122" y="747" class="label" >API: TCP 55000</text>
+<rect x="536" y="605" width="340" height="160" rx="15" fill="#18324a" stroke="#347586"/>
+<text x="558" y="643" class="head" >Wazuh Indexer</text>
+<text x="558" y="679" class="body" >Store • index • search</text>
+<text x="558" y="719" class="label" >Internal HTTPS: TCP 9200</text>
+<text x="558" y="747" class="label" >Host binding: 127.0.0.1:9200</text>
+<rect x="972" y="605" width="368" height="160" rx="15" fill="#18324a" stroke="#347586"/>
+<text x="994" y="643" class="head" >Wazuh Dashboard</text>
+<text x="994" y="679" class="body" >Discover • endpoints • alerts</text>
+<text x="994" y="719" class="label" >Host 443 → container 5601</text>
+<text x="994" y="747" class="label" >Binding: 192.168.38.10</text>
+<path d="M440 679 H536" class="line"/>
+<text x="456" y="657" class="label" >alerts</text>
+<path d="M972 679 H876" class="line"/>
+<text x="889" y="657" class="label" >query</text>
+<path d="M1155 431 V605" class="line"/>
+<path d="M1156 765 V819 H270 V765" class="line"/>
+<text x="568" y="811" class="label" >Manager API · internal HTTPS 55000</text>
+<text x="100" y="871" class="label" >Named volumes retain stack state; fresh post-reboot alerts verify that ingestion resumes.</text>
+<text x="56" y="976" class="label" letter-spacing="1.5">SEPARATE MAINTENANCE PATH</text>
+<text x="56" y="1010" class="body" >VMware NAT: 192.168.121.0/24  •  SIEM: .151  •  Ubuntu setup: .152  •  Windows setup: .146</text>
+<text x="56" y="1045" class="label" >NAT-off tests are documented. Permanent endpoint isolation is not established by the supplied route evidence.</text>
+</svg>

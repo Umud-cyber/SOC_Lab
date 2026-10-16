@@ -1,0 +1,16 @@
+# Partial reference only. Replace the matching ports lists in the private
+# deployment; do not use this as a complete or unchecked override file.
+# Bindings transcribed from the final container output (E30).
+services:
+  wazuh.manager:
+    ports:
+      - "192.168.38.10:1514:1514/tcp"
+      - "192.168.38.10:1515:1515/tcp"
+      - "192.168.38.10:514:514/udp"
+      - "192.168.38.10:55000:55000/tcp"
+  wazuh.indexer:
+    ports:
+      - "127.0.0.1:9200:9200/tcp"
+  wazuh.dashboard:
+    ports:
+      - "192.168.38.10:443:5601/tcp"

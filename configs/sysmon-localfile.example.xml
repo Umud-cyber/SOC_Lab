@@ -1,0 +1,6 @@
+<!-- Example fragment: place inside the Windows agent's existing ossec_config.
+     This collects a channel; it is not a Sysmon filtering configuration. -->
+<localfile>
+  <location>Microsoft-Windows-Sysmon/Operational</location>
+  <log_format>eventchannel</log_format>
+</localfile>

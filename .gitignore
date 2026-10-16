@@ -1,0 +1,31 @@
+# Private deployment material
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.pfx
+client.keys
+internal_users.yml
+secrets/
+certs/
+wazuh_indexer_ssl_certs/
+
+# Runtime state and virtual machines
+volumes/
+data/
+*.vmdk
+*.vmem
+*.vmss
+*.vmsn
+*.iso
+*.log
+
+# Local working files
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+~$*
+*.tmp

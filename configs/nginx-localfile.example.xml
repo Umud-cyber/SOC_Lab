@@ -1,0 +1,6 @@
+<!-- Example fragment: place inside the Linux agent's existing ossec_config.
+     Check for an existing source definition before adding it. -->
+<localfile>
+  <log_format>apache</log_format>
+  <location>/var/log/nginx/access.log</location>
+</localfile>
